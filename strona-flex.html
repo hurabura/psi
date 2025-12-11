@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Szkielet – Flexbox (header, nav | main | aside, footer)</title>
+  <style>
+    /*
+      Układ zgodny z rysunkiem:
+      ┌───────────────────────────────┐  ← nagłówek (header) pełna szerokość
+      │           HEADER              │
+      ├───────┬───────────────┬──────┤  ← 3 kolumny: lewa | środek | prawa
+      │ LEWA  │     ŚRODEK    │ PRAWA│
+      ├───────┴───────────────┴──────┤
+      │            STOPKA             │  ← stopka (footer) pełna szerokość
+      └───────────────────────────────┘
+    */
+
+    /* Reset i podstawy wizualne, border box oznacza że padding i border wliczają się w szerokość i wysokość elementu */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      background: #fff;
+    }
+
+    /* Zewnętrzny kontener strony – bez obramowań, tylko kolory tła */
+    .page {
+      min-height: 100vh;                 /* pełna wysokość okna */
+      display: flex;                     /* kolumnowy układ strony */
+      flex-direction: column;
+    }
+
+    /* Belki: nagłówek i stopka na pełną szerokość */
+    header, footer { text-align: center; }
+    footer { border-bottom: none; }
+
+    /* Strefa z trzema kolumnami – w Flexboxie */
+    .columns {
+      display: flex;                     /* 3 kolumny obok siebie */
+      gap: 0;                            /* bez odstępów – prosto */
+      flex: 1;                           /* wypełnij przestrzeń między headerem i stopką */
+      min-height: 0;
+    }
+
+    /* Pojedyncza kolumna; każda ma ramkę pionową jak na rysunku */
+    /* Proste bloki bez paddingów i bez zaokrągleń */
+    nav, main, aside { overflow: auto; } /* pozwala przewijać zawartość, jeśli jest za duża */
+
+    /* Proporcje kolumn: lewa 1, środek 2, prawa 1 */
+  nav  { flex: 1;  background: #ffe8e8; }
+  main { flex: 2;  background: #e8f0ff; }
+  aside{ flex: 1;  background: #e8ffe8; }
+    
+
+    /* Kolory belek (zamiast obramowań) */
+    header { background: #4b6cb7; color: #fff; }
+    footer { background: #182848; color: #fff; }
+  </style>
+</head>
+<body>
+  <!-- Nagłówek na całą szerokość -->
+  <div class="page">
+    <header>Header</header>
+
+    <!-- Środkowa część: 3 kolumny obok siebie -->
+    <div class="columns">
+      <nav>nav</nav>
+      <main>main</main>
+      <aside>aside</aside>
+    </div>
+
+    <!-- Stopka na całą szerokość -->
+    <footer>Stopka</footer>
+  </div>
+</body>
+</html>
