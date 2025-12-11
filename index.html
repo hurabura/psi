@@ -57,6 +57,16 @@
     /* Kolory belek (zamiast obramowań) */
     header { background: #4b6cb7; color: #fff; }
     footer { background: #182848; color: #fff; }
+    
+    /* Styl dla publicznego adresu w stopce */
+    footer .public-address {
+      font-size: 0.9em;
+      margin-top: 0.5em;
+    }
+    
+    footer .public-address a {
+      color: #88ccff;
+    }
   </style>
 </head>
 <body>
@@ -74,8 +84,8 @@
     <!-- Stopka na całą szerokość -->
     <footer>
       <p>Stopka</p>
-      <p style="font-size: 0.9em; margin-top: 0.5em;">
-        Publiczny adres: <a href="https://hurabura.github.io/psi/" style="color: #88ccff;">https://hurabura.github.io/psi/</a>
+      <p class="public-address">
+        Publiczny adres: <a href="https://hurabura.github.io/psi/">https://hurabura.github.io/psi/</a>
       </p>
     </footer>
   </div>
